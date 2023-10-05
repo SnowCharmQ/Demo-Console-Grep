@@ -14,14 +14,12 @@ pub mod system;
 pub fn handle_input(line: &str) {
     dbg!("{}", line);
     let items: Vec<&str> = line.split_whitespace().collect();
-    if items.len() < 1 {
+    if items.is_empty() {
         let info = format!("{}: no input", "error".red());
         println!("{info}");
-        return;
     } else if items[0] != "grep" {
         let info = format!("{}: command not found", "error".red());
         println!("{info}");
-        return;
     } else {
         handle_grep_command(items);
     }
@@ -52,7 +50,7 @@ fn handle_grep_command(items: Vec<&str>) {
             let info = format!("{}: not enough input", "error".red());
             println!("{}", info);
         }
-        3 if items[1].starts_with("-") => {
+        3 if items[1].starts_with('-') => {
             let info = format!("{}: not enough input", "error".red());
             println!("{}", info);
         }
