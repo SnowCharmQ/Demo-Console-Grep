@@ -33,9 +33,9 @@ pub fn get_os() -> String {
 }
 
 /// Get version info
-/// 
+///
 /// # Examples
-/// 
+///
 /// ```
 /// use demo_console_grep::system;
 /// let version = system::get_version();

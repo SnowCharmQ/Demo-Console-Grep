@@ -16,6 +16,7 @@ pub fn print_info(str: &str) {
         }
         println!("========= {:<20} =========", info);
     } else {
-        println!("{}", format!("{:^40}", str));
+        let str = format!("{:^40}", str);
+        println!("{}", str);
     }
 }
