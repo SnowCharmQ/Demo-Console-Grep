@@ -1,4 +1,5 @@
+use demo_console_grep::print;
+
 fn main() {
-    println!("Hello, world!");
+    print::print_info("Hello, world!");
 }
-    
