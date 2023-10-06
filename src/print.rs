@@ -24,9 +24,9 @@ pub fn print_info(str: &str) {
 }
 
 /// Print grep info
-/// 
+///
 /// # Examples
-/// 
+///
 /// ```
 /// use demo_console_grep::print;
 /// print::print_grep();
@@ -37,9 +37,9 @@ pub fn print_grep() {
 }
 
 /// Print help info
-/// 
+///
 /// # Examples
-/// 
+///
 /// ```
 /// use demo_console_grep::print;
 /// print::print_help();
@@ -56,9 +56,9 @@ pub fn print_help() {
 }
 
 /// Print error info
-/// 
+///
 /// # Examples
-/// 
+///
 /// ```
 /// use demo_console_grep::print;
 /// print::print_error("Hello, world!");
