@@ -15,11 +15,9 @@ pub mod system;
 pub fn handle_input(line: &str) {
     let items: Vec<&str> = line.split_whitespace().collect();
     if items.is_empty() {
-        let info = format!("{}: no input", "error".red());
-        println!("{info}");
+        print::print_error("no input");
     } else if items[0] != "grep" {
-        let info = format!("{}: command not found", "error".red());
-        println!("{info}");
+        print::print_error("command not found")
     } else {
         handle_grep_command(items);
     }
@@ -64,7 +62,7 @@ fn search_with_arguments(items: Vec<&str>) {
     if let Some((idx, _)) = args.iter().enumerate().find(|(_, arg)| {
         !arg.starts_with('-') || arg.chars().all(|c| c == '-') || !valid_args.contains(arg)
     }) {
-        print::print_error(format!("{}: invalid option {}", "error".red(), args[idx]).as_str());
+        print::print_error(format!("invalid option: {}", args[idx]).as_str());
     } else {
         let contents = match std::fs::read_to_string(path) {
             Ok(rs) => rs,
@@ -132,10 +130,10 @@ fn handle_grep_command(items: Vec<&str>) {
             print::print_help();
         }
         2 => {
-            print::print_error(format!("{}: not enough input", "error".red()).as_str());
+            print::print_error("not enough input");
         }
         3 if items[1].starts_with('-') => {
-            print::print_error(format!("{}: not enough input", "error".red()).as_str());
+            print::print_error("not enough input");
         }
         3 => search_no_argument(items[1], items[2]),
         _ => search_with_arguments(items),
